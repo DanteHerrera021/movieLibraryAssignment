@@ -65,6 +65,29 @@ do
     }
     else if (choice == "2")
     {
+        StreamWriter sw = File.AppendText(file);
 
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine("Add a new movie (Y/N)?");
+
+            string resp = Console.ReadLine().ToUpper();
+            if (resp != "Y") { break; }
+            sw.WriteLine();
+
+            Console.WriteLine("Enter the movie ID.");
+            string movieId = Console.ReadLine();
+
+            Console.WriteLine("Enter the movie name and year in this format:");
+            Console.WriteLine("Name (0000)");
+            string movieName = Console.ReadLine();
+
+            Console.WriteLine("Enter the movie genres, in this format:");
+            Console.WriteLine("Adventure|Drama|Romance");
+            string movieGenre = Console.ReadLine();
+
+            sw.Write("{0},{1},{2}", movieId, movieName, movieGenre);
+        }
+        sw.Close();
     }
 } while (choice == "1" || choice == "2");

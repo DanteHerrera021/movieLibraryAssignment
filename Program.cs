@@ -1,4 +1,7 @@
-﻿
+﻿using NLog;
+string path = Directory.GetCurrentDirectory() + "\\nlog.config";
+var logger = LogManager.LoadConfiguration(path).GetCurrentClassLogger();
+
 // NO EXTRA CREDIT
 // AMOUNT OF MOVIES TO RETURN IN CONSOLE
 int returnMovieAmount = 10;

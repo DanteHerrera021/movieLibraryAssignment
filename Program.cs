@@ -25,7 +25,17 @@ do
             StreamReader sr = new StreamReader(file);
             Console.WriteLine("How many movies would you like to see (sorted by Movie ID)");
 
-            returnMovieAmount = int.Parse(Console.ReadLine());
+            // If 
+            try
+            {
+                returnMovieAmount = int.Parse(Console.ReadLine());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                logger.Error("A number needs to be inputted; Default of 10 movies");
+            }
+
             int movieNum = 0;
 
             Console.WriteLine();
@@ -63,7 +73,7 @@ do
         }
         else
         {
-            Console.WriteLine("File does not exist");
+            logger.Fatal("File does not exist");
         }
     }
     else if (choice == "2")
